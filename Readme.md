@@ -24,21 +24,6 @@ The `yaphouse` Anchor program defines core on-chain logic for:
 
 ## 🏗️ Architectural Layout
 
-```rust
-use anchor_lang::prelude::*;
-declare_id!("6K2rTd7Lmdhks4vDaSYDvbSG43HoVbtRX2tXj86rRG2r");
-#[program]
-pub mod yaphouse { /* ... */ }
-
-// Account structs:
-#[account] pub struct User { … }
-#[account] pub struct YapRoom { … }
-// Custom Data Types:
-#[derive(AnchorSerialize, AnchorDeserialize)] pub struct SpaceAttendance { … }
-```
-
-All PDAs use **deterministic seeds** + bumps for address derivation and rent exemption.
-
 ---
 
 ## 🔨 Instructions & Accounts
@@ -115,10 +100,7 @@ All PDAs use **deterministic seeds** + bumps for address derivation and rent exe
 5. **Write Unit Tests**
 
    * For each instruction: success/failure cases, PDA derivations.
-6. **Generate IDL & Client Snippets**
-
-   * For Next.js + Anchor JS integration.
+     
+6. **Complete The Frontend integration for v1
 
 ---
-
-> *YapHouse v1 on-chain spec sets the foundation for a Social‑Fi ecosystem. This README captures the current state, guiding future implementations of reward and NFT mechanics!*
