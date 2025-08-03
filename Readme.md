@@ -101,6 +101,6 @@ The `yaphouse` Anchor program defines core on-chain logic for:
 
    * For each instruction: success/failure cases, PDA derivations.
      
-6. **Complete The Frontend integration for v1
+6. **Complete The Frontend integration for v1**
 
 ---
