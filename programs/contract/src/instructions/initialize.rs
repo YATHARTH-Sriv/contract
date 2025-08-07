@@ -1,10 +1,6 @@
 use anchor_lang::prelude::*;
-use anchor_spl::token::Mint;
-
+use anchor_spl::token_interface::{Mint, TokenAccount, TokenInterface};
 use crate::Platform;
-
-
-
 
 pub fn handler_initialize_platform(ctx: Context<InitializePlatform>) -> Result<()> {
         let platform = &mut ctx.accounts.platform;
@@ -15,6 +11,7 @@ pub fn handler_initialize_platform(ctx: Context<InitializePlatform>) -> Result<(
         platform.treasury = ctx.accounts.treasury.key();
         platform.yap_mint = ctx.accounts.yap_mint.key();
         platform.bump = ctx.bumps.platform;
+        platform.treasury_bump=ctx.bumps.treasury;
         
         Ok(())
     }
@@ -23,6 +20,9 @@ pub fn handler_initialize_platform(ctx: Context<InitializePlatform>) -> Result<(
 // Account structs
 #[derive(Accounts)]
 pub struct InitializePlatform<'info> {
+    #[account(mut)]
+    pub authority: Signer<'info>,
+
     #[account(
         init,
         payer = authority,
@@ -31,14 +31,18 @@ pub struct InitializePlatform<'info> {
         bump
     )]
     pub platform: Account<'info, Platform>,
+    pub yap_mint: InterfaceAccount<'info, Mint>,
+     #[account(
+        init,
+        token::mint = yap_mint,
+        token::authority = authority,
+        payer = authority,
+        seeds = [b"yaphouse_treasury"],
+        bump
+    )]
     
-    #[account(mut)]
-    pub authority: Signer<'info>,
-    
-    /// CHECK: Treasury account for collecting payments
-    pub treasury: AccountInfo<'info>,
-    
-    pub yap_mint: Account<'info, Mint>,
+    pub treasury: InterfaceAccount<'info,TokenAccount>,   
     pub system_program: Program<'info, System>,
+    pub token_program: Interface<'info, TokenInterface>,
 }
 

@@ -1,7 +1,6 @@
 use anchor_lang::prelude::*;
 
 
-// Account Data Structures
 #[account]
 #[derive(InitSpace)]
 pub struct Platform {
@@ -11,4 +10,5 @@ pub struct Platform {
     pub treasury: Pubkey,
     pub yap_mint: Pubkey,
     pub bump: u8,
+    pub treasury_bump:u8
 }

@@ -1,5 +1,5 @@
 use anchor_lang::prelude::*;
-use crate::{error::ErrorCode, Platform, User};
+use crate::{error::ErrorCode, Platform, User,event::UserCreated};
 
 
 pub fn initialize_user(
@@ -24,7 +24,7 @@ pub fn initialize_user(
         user.spoken_time = 0;
         user.total_listening_time = 0;
         user.total_yap_earned = 0;
-        user.reputation_score = 500; // Start with neutral reputation
+        user.reputation_score = 500; 
         user.staked_amount = 0;
         user.is_verified = false;
         user.space_attended_and_time = Vec::new();
@@ -33,11 +33,11 @@ pub fn initialize_user(
 
         platform.total_users += 1;
 
-        // emit!(UserCreated {
-        //     user: ctx.accounts.payer.key(),
-        //     username: user.user_username.clone(),
-        //     created_at: clock.unix_timestamp,
-        // });
+        emit!(UserCreated {
+            user: ctx.accounts.payer.key(),
+            username: user.user_username.clone(),
+            created_at: clock.unix_timestamp,
+        });
 
         Ok(())
     }

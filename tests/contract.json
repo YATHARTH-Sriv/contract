@@ -1,0 +1,1974 @@
+{
+  "address": "6K2rTd7Lmdhks4vDaSYDvbSG43HoVbtRX2tXj86rRG2r",
+  "metadata": {
+    "name": "contract",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "claim_reward",
+      "discriminator": [
+        149,
+        95,
+        181,
+        242,
+        94,
+        90,
+        158,
+        162
+      ],
+      "accounts": [
+        {
+          "name": "user_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user_profile.user_username",
+                "account": "User"
+              }
+            ]
+          }
+        },
+        {
+          "name": "platform",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "yap_mint",
+          "writable": true
+        },
+        {
+          "name": "user_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "payer"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "yap_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "create_room",
+      "discriminator": [
+        130,
+        166,
+        32,
+        2,
+        247,
+        120,
+        178,
+        53
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "yap_room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user_profile.user_username",
+                "account": "User"
+              }
+            ]
+          }
+        },
+        {
+          "name": "platform",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "room_title",
+          "type": "string"
+        },
+        {
+          "name": "room_id",
+          "type": "u64"
+        },
+        {
+          "name": "start_ts",
+          "type": "i64"
+        },
+        {
+          "name": "duration",
+          "type": "u64"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "category",
+          "type": "string"
+        },
+        {
+          "name": "max_speakers",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "end_room",
+      "discriminator": [
+        102,
+        106,
+        181,
+        155,
+        61,
+        17,
+        40,
+        78
+      ],
+      "accounts": [
+        {
+          "name": "yap_room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "creator_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "reward_pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  119,
+                  97,
+                  114,
+                  100,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "room_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_platform",
+      "discriminator": [
+        119,
+        201,
+        101,
+        45,
+        75,
+        122,
+        89,
+        3
+      ],
+      "accounts": [
+        {
+          "name": "authority",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "platform",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "yap_mint"
+        },
+        {
+          "name": "treasury",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  121,
+                  97,
+                  112,
+                  104,
+                  111,
+                  117,
+                  115,
+                  101,
+                  95,
+                  116,
+                  114,
+                  101,
+                  97,
+                  115,
+                  117,
+                  114,
+                  121
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "initialize_user",
+      "discriminator": [
+        111,
+        17,
+        185,
+        250,
+        60,
+        122,
+        38,
+        254
+      ],
+      "accounts": [
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user_created",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "user_username"
+              }
+            ]
+          }
+        },
+        {
+          "name": "platform",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "user_name",
+          "type": "string"
+        },
+        {
+          "name": "user_username",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "join_room",
+      "discriminator": [
+        95,
+        232,
+        188,
+        81,
+        124,
+        130,
+        78,
+        139
+      ],
+      "accounts": [
+        {
+          "name": "yap_room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user_profile.user_username",
+                "account": "User"
+              }
+            ]
+          }
+        },
+        {
+          "name": "listening_session",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  105,
+                  115,
+                  116,
+                  101,
+                  110,
+                  105,
+                  110,
+                  103,
+                  95,
+                  115,
+                  101,
+                  115,
+                  115,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "room_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "leave_room",
+      "discriminator": [
+        249,
+        42,
+        239,
+        128,
+        192,
+        20,
+        114,
+        156
+      ],
+      "accounts": [
+        {
+          "name": "yap_room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user_profile.user_username",
+                "account": "User"
+              }
+            ]
+          }
+        },
+        {
+          "name": "listening_session",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  105,
+                  115,
+                  116,
+                  101,
+                  110,
+                  105,
+                  110,
+                  103,
+                  95,
+                  115,
+                  101,
+                  115,
+                  115,
+                  105,
+                  111,
+                  110
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "room_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "mint_badge_nft",
+      "discriminator": [
+        58,
+        168,
+        96,
+        44,
+        183,
+        116,
+        219,
+        237
+      ],
+      "accounts": [
+        {
+          "name": "user_profile",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  117,
+                  115,
+                  101,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "user_profile.user_username",
+                "account": "User"
+              }
+            ]
+          }
+        },
+        {
+          "name": "platform",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  108,
+                  97,
+                  116,
+                  102,
+                  111,
+                  114,
+                  109
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "badge_mint",
+          "writable": true
+        },
+        {
+          "name": "user_badge_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "payer"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "badge_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "associated_token_program",
+          "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "badge_type",
+          "type": "u8"
+        }
+      ]
+    },
+    {
+      "name": "start_room",
+      "discriminator": [
+        1,
+        255,
+        77,
+        194,
+        171,
+        170,
+        62,
+        248
+      ],
+      "accounts": [
+        {
+          "name": "yap_room",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  111,
+                  111,
+                  109
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "reward_pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  114,
+                  101,
+                  119,
+                  97,
+                  114,
+                  100,
+                  95,
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "room_id"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "room_id",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "subscription_purchase",
+      "discriminator": [
+        105,
+        179,
+        7,
+        49,
+        195,
+        151,
+        132,
+        195
+      ],
+      "accounts": [
+        {
+          "name": "creator_profile",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  99,
+                  114,
+                  101,
+                  97,
+                  116,
+                  111,
+                  114
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payer"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "payer_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "payer"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payment_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "treasury_token_account",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "account",
+                "path": "treasury"
+              },
+              {
+                "kind": "const",
+                "value": [
+                  6,
+                  221,
+                  246,
+                  225,
+                  215,
+                  101,
+                  161,
+                  147,
+                  217,
+                  203,
+                  225,
+                  70,
+                  206,
+                  235,
+                  121,
+                  172,
+                  28,
+                  180,
+                  133,
+                  237,
+                  95,
+                  91,
+                  55,
+                  145,
+                  58,
+                  140,
+                  245,
+                  133,
+                  126,
+                  255,
+                  0,
+                  169
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "payment_mint"
+              }
+            ],
+            "program": {
+              "kind": "const",
+              "value": [
+                140,
+                151,
+                37,
+                143,
+                78,
+                36,
+                137,
+                241,
+                187,
+                61,
+                16,
+                41,
+                20,
+                142,
+                13,
+                131,
+                11,
+                90,
+                19,
+                153,
+                218,
+                255,
+                16,
+                132,
+                4,
+                142,
+                123,
+                216,
+                219,
+                233,
+                248,
+                89
+              ]
+            }
+          }
+        },
+        {
+          "name": "treasury"
+        },
+        {
+          "name": "payment_mint"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "subscription_type",
+          "type": "u8"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "CreatorProfile",
+      "discriminator": [
+        251,
+        250,
+        184,
+        111,
+        214,
+        178,
+        32,
+        221
+      ]
+    },
+    {
+      "name": "ListeningSession",
+      "discriminator": [
+        194,
+        183,
+        163,
+        221,
+        83,
+        235,
+        252,
+        180
+      ]
+    },
+    {
+      "name": "Platform",
+      "discriminator": [
+        77,
+        92,
+        204,
+        58,
+        187,
+        98,
+        91,
+        12
+      ]
+    },
+    {
+      "name": "RewardPool",
+      "discriminator": [
+        134,
+        121,
+        197,
+        211,
+        133,
+        154,
+        82,
+        32
+      ]
+    },
+    {
+      "name": "User",
+      "discriminator": [
+        159,
+        117,
+        95,
+        227,
+        239,
+        151,
+        58,
+        236
+      ]
+    },
+    {
+      "name": "YapRoom",
+      "discriminator": [
+        160,
+        138,
+        106,
+        242,
+        223,
+        114,
+        93,
+        243
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "NameTooLong",
+      "msg": "Name is too long"
+    },
+    {
+      "code": 6001,
+      "name": "UsernameTooLong",
+      "msg": "Username is too long"
+    },
+    {
+      "code": 6002,
+      "name": "NameEmpty",
+      "msg": "Name cannot be empty"
+    },
+    {
+      "code": 6003,
+      "name": "UsernameEmpty",
+      "msg": "Username cannot be empty"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidSubscriptionType",
+      "msg": "Invalid subscription type"
+    },
+    {
+      "code": 6005,
+      "name": "TitleTooLong",
+      "msg": "Title is too long"
+    },
+    {
+      "code": 6006,
+      "name": "TitleEmpty",
+      "msg": "Title cannot be empty"
+    },
+    {
+      "code": 6007,
+      "name": "DescriptionTooLong",
+      "msg": "Description is too long"
+    },
+    {
+      "code": 6008,
+      "name": "CategoryTooLong",
+      "msg": "Category is too long"
+    },
+    {
+      "code": 6009,
+      "name": "TooManySpeakers",
+      "msg": "Too many speakers allowed"
+    },
+    {
+      "code": 6010,
+      "name": "NoSpeakersAllowed",
+      "msg": "Must allow at least one speaker"
+    },
+    {
+      "code": 6011,
+      "name": "InvalidScheduleTime",
+      "msg": "Invalid schedule time"
+    },
+    {
+      "code": 6012,
+      "name": "RoomTooShort",
+      "msg": "Room duration too short"
+    },
+    {
+      "code": 6013,
+      "name": "RoomTooLong",
+      "msg": "Room duration too long"
+    },
+    {
+      "code": 6014,
+      "name": "SubscriptionExpired",
+      "msg": "Subscription has expired"
+    },
+    {
+      "code": 6015,
+      "name": "RoomAlreadyLive",
+      "msg": "Room is already live"
+    },
+    {
+      "code": 6016,
+      "name": "UnauthorizedHost",
+      "msg": "Not authorized to host this room"
+    },
+    {
+      "code": 6017,
+      "name": "NotTimeToStart",
+      "msg": "Not time to start the room yet"
+    },
+    {
+      "code": 6018,
+      "name": "RoomNotLive",
+      "msg": "Room is not live"
+    },
+    {
+      "code": 6019,
+      "name": "HostCannotJoinAsListener",
+      "msg": "Host cannot join as listener"
+    },
+    {
+      "code": 6020,
+      "name": "SessionAlreadyEnded",
+      "msg": "Session already ended"
+    },
+    {
+      "code": 6021,
+      "name": "NoListenersToRemove",
+      "msg": "No listeners to remove"
+    },
+    {
+      "code": 6022,
+      "name": "NoRewardsToClaim",
+      "msg": "No rewards to claim"
+    },
+    {
+      "code": 6023,
+      "name": "InvalidBadgeType",
+      "msg": "Invalid badge type"
+    },
+    {
+      "code": 6024,
+      "name": "NotEligibleForBadge",
+      "msg": "Not eligible for this badge"
+    }
+  ],
+  "types": [
+    {
+      "name": "AttendanceRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "room_id",
+            "type": "u64"
+          },
+          {
+            "name": "room_host",
+            "type": "pubkey"
+          },
+          {
+            "name": "attended_at",
+            "type": "i64"
+          },
+          {
+            "name": "role",
+            "type": {
+              "defined": {
+                "name": "AttendanceRole"
+              }
+            }
+          },
+          {
+            "name": "minutes_present",
+            "type": "u64"
+          },
+          {
+            "name": "minutes_speaking",
+            "type": "u64"
+          },
+          {
+            "name": "engagement_score",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "AttendanceRole",
+      "type": {
+        "kind": "enum",
+        "variants": [
+          {
+            "name": "Listener"
+          },
+          {
+            "name": "Speaker"
+          },
+          {
+            "name": "CoHost"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CreatorProfile",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "subscription_expires",
+            "type": "i64"
+          },
+          {
+            "name": "subscription_type",
+            "type": "u8"
+          },
+          {
+            "name": "total_yap_earned",
+            "type": "u64"
+          },
+          {
+            "name": "total_subscription_revenue",
+            "type": "u64"
+          },
+          {
+            "name": "pending_rewards",
+            "type": "u64"
+          },
+          {
+            "name": "reputation_score",
+            "type": "u64"
+          },
+          {
+            "name": "total_rooms_hosted",
+            "type": "u64"
+          },
+          {
+            "name": "total_hosting_minutes",
+            "type": "u64"
+          },
+          {
+            "name": "average_room_rating",
+            "type": "u32"
+          },
+          {
+            "name": "hosted_rooms",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "RoomRecord"
+                }
+              }
+            }
+          },
+          {
+            "name": "attended_rooms",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "AttendanceRecord"
+                }
+              }
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "ListeningSession",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user",
+            "type": "pubkey"
+          },
+          {
+            "name": "room",
+            "type": "pubkey"
+          },
+          {
+            "name": "started_at",
+            "type": "i64"
+          },
+          {
+            "name": "ended_at",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "rewards_earned",
+            "type": "u64"
+          },
+          {
+            "name": "engagement_score",
+            "type": "u8"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Platform",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_rooms",
+            "type": "u64"
+          },
+          {
+            "name": "total_users",
+            "type": "u64"
+          },
+          {
+            "name": "treasury",
+            "type": "pubkey"
+          },
+          {
+            "name": "yap_mint",
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          },
+          {
+            "name": "treasury_bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RewardPool",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "room",
+            "type": "pubkey"
+          },
+          {
+            "name": "total_allocated",
+            "type": "u64"
+          },
+          {
+            "name": "total_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "finalized_at",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RoomRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "room_id",
+            "type": "u64"
+          },
+          {
+            "name": "hosted_at",
+            "type": "i64"
+          },
+          {
+            "name": "duration_minutes",
+            "type": "u64"
+          },
+          {
+            "name": "peak_listeners",
+            "type": "u32"
+          },
+          {
+            "name": "total_speakers",
+            "type": "u32"
+          },
+          {
+            "name": "yap_earned",
+            "type": "u64"
+          },
+          {
+            "name": "room_rating",
+            "type": "u32"
+          }
+        ]
+      }
+    },
+    {
+      "name": "SpaceAttendance",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "room_id",
+            "type": "u64"
+          },
+          {
+            "name": "time",
+            "type": "i64"
+          },
+          {
+            "name": "role",
+            "type": {
+              "defined": {
+                "name": "AttendanceRole"
+              }
+            }
+          },
+          {
+            "name": "engagement_score",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "User",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "user_pubkey",
+            "type": "pubkey"
+          },
+          {
+            "name": "user_name",
+            "type": "string"
+          },
+          {
+            "name": "user_username",
+            "type": "string"
+          },
+          {
+            "name": "rooms_created",
+            "type": "u64"
+          },
+          {
+            "name": "rooms_attended",
+            "type": "u64"
+          },
+          {
+            "name": "spoken_time",
+            "type": "u64"
+          },
+          {
+            "name": "total_listening_time",
+            "type": "u64"
+          },
+          {
+            "name": "total_yap_earned",
+            "type": "u64"
+          },
+          {
+            "name": "reputation_score",
+            "type": "u64"
+          },
+          {
+            "name": "staked_amount",
+            "type": "u64"
+          },
+          {
+            "name": "is_verified",
+            "type": "bool"
+          },
+          {
+            "name": "space_attended_and_time",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "SpaceAttendance"
+                }
+              }
+            }
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    },
+    {
+      "name": "YapRoom",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "host_pubkey",
+            "type": "pubkey"
+          },
+          {
+            "name": "room_title",
+            "type": "string"
+          },
+          {
+            "name": "room_id",
+            "type": "u64"
+          },
+          {
+            "name": "duration",
+            "type": "u64"
+          },
+          {
+            "name": "start_time",
+            "type": "i64"
+          },
+          {
+            "name": "description",
+            "type": "string"
+          },
+          {
+            "name": "category",
+            "type": "string"
+          },
+          {
+            "name": "max_speakers",
+            "type": "u8"
+          },
+          {
+            "name": "active",
+            "type": "bool"
+          },
+          {
+            "name": "is_live",
+            "type": "bool"
+          },
+          {
+            "name": "current_listeners",
+            "type": "u32"
+          },
+          {
+            "name": "peak_listeners",
+            "type": "u32"
+          },
+          {
+            "name": "current_speakers",
+            "type": "u32"
+          },
+          {
+            "name": "total_rewards_distributed",
+            "type": "u64"
+          },
+          {
+            "name": "host_earnings",
+            "type": "u64"
+          },
+          {
+            "name": "live_started_at",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "ended_at",
+            "type": {
+              "option": "i64"
+            }
+          },
+          {
+            "name": "total_duration",
+            "type": "i64"
+          },
+          {
+            "name": "total_ratings",
+            "type": "u32"
+          },
+          {
+            "name": "rating_count",
+            "type": "u32"
+          },
+          {
+            "name": "average_rating",
+            "type": "u32"
+          },
+          {
+            "name": "created_at",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
